@@ -1,0 +1,1004 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+.bar {
+  position: relative;
+  min-height: 60vh;
+  background: url(images/background/herotop.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.nabar-menu {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin: 10px 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.logo i {
+  width: 30px;
+  color: white;
+}
+
+.logo a,
+.logo span {
+  color: white;
+}
+
+.pages {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.pages a,
+.login a,
+.login-nav a {
+  color: white;
+}
+
+.pages a:hover {
+  color: black;
+}
+
+.search {
+  margin-left: auto;
+}
+
+.search i,
+.home i {
+  color: white;
+}
+
+.search i {
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+#Nav-log:hover {
+  background: black;
+}
+
+.headings {
+  position: absolute;
+  top: 20%;
+  left: 8%;
+  right: 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: azure;
+}
+
+.headings h1 {
+  font-size: 24px;
+  line-height: 1.4;
+}
+
+.headings p {
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+.header-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.header-btn button {
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.create-account,
+.loginform,
+.forgotPassword {
+  position: absolute;
+  top: 34%;
+  left: 50%;
+  width: 300px;
+  padding: 25px;
+  display: none;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 1px 2px 20px black;
+  z-index: 10;
+}
+
+.create-account.show,
+.loginform.show,
+.forgotPassword.show {
+  display: block;
+}
+
+.create-account h1,
+.loginform h1,
+.forgotPassword h1 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.create-account label,
+.loginform label,
+.forgotPassword label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  margin-bottom: 12px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.input p {
+  margin: 0 8px 0 2px;
+}
+
+.input input {
+  width: 100%;
+  height: 100%;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.input input::placeholder {
+  color: #777;
+}
+
+select {
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  margin-bottom: 15px;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.form-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 15px 0;
+}
+
+.form-btn button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background: black;
+  color: white;
+  cursor: pointer;
+}
+
+.form-btn button:hover {
+  background: goldenrod;
+  color: black;
+}
+
+.form-btn a,
+.create-account > a,
+.loginform > a,
+.forgotPassword > a {
+  color: goldenrod;
+  font-size: 14px;
+}
+
+.form-btn a:hover,
+.create-account > a:hover,
+.loginform > a:hover,
+.forgotPassword > a:hover {
+  color: black;
+}
+
+#Otp {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.opt {
+  margin: 15px 0;
+  text-align: center;
+}
+
+.opt .otp {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#createBtn.remove{
+  display: none;
+}
+
+form::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 10px solid;
+  border-color: gold white goldenrod black;
+  border-radius: inherit;
+  box-sizing: border-box;
+  animation: borderColor 2s linear infinite;
+  pointer-events: none;
+}
+
+.create-account.show {
+  animation: createEntrance 1s ease-out forwards;
+}
+
+.loginform.show {
+  animation: loginEntrance 1s ease-out forwards;
+}
+
+.forgotPassword.show {
+  animation: forgotEntrance 1s ease-out forwards;
+}
+
+@keyframes createEntrance {
+  from {
+    transform: translate(-50%, -100vh) rotate(-360deg);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(-50%, 0) rotate(-360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes loginEntrance {
+  from {
+    transform: translate(-50%, 0) translateX(-100vw) rotate(-360deg);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(-50%, 0) translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes forgotEntrance {
+  from {
+    transform: translate(-50%, 100vh) rotate(-180deg);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(-50%, 0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes borderColor {
+  0% {
+    border-color: gold white goldenrod black;
+  }
+
+  25% {
+    border-color: white goldenrod black gold;
+  }
+
+  50% {
+    border-color: goldenrod black gold white;
+  }
+
+  75% {
+    border-color: black gold white goldenrod;
+  }
+
+  100% {
+    border-color: gold white goldenrod black;
+  }
+}
+
+@media (max-width: 1200px) {
+  .nabar-menu {
+    gap: 30px;
+  }
+
+  .headings {
+    left: 10%;
+    right: 10%;
+  }
+}
+
+@media (max-width: 992px) {
+  .bar {
+    min-height: 65vh;
+  }
+
+  .nabar-menu {
+    gap: 20px;
+  }
+
+  .pages {
+    gap: 12px;
+  }
+
+  .pages a {
+    font-size: 14px;
+  }
+
+  .headings {
+    top: 18%;
+  }
+
+  .headings h1 {
+    font-size: 22px;
+  }
+
+  .headings p {
+    font-size: 14px;
+  }
+
+  .create-account,
+  .loginform,
+  .forgotPassword {
+    width: 340px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bar {
+    min-height: 650px;
+  }
+
+  .nabar-menu {
+    gap: 15px;
+    margin: 15px;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    margin-right: auto;
+  }
+
+  .pages {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .pages a {
+    font-size: 13px;
+  }
+
+  .search,
+  .home {
+    display: none;
+  }
+
+  .headings {
+    top: 25%;
+    left: 7%;
+    right: 7%;
+  }
+
+  .headings h1 {
+    font-size: 20px;
+  }
+
+  .headings p {
+    font-size: 14px;
+  }
+
+  .header-btn {
+    top: 55%;
+  }
+
+  .create-account,
+  .loginform,
+  .forgotPassword {
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    max-width: 360px;
+    padding: 22px;
+  }
+}
+
+@media (max-width: 576px) {
+  .bar {
+    min-height: 700px;
+  }
+
+  .nabar-menu {
+    margin: 10px;
+  }
+
+  .pages {
+    display: none;
+  }
+
+  .logo span {
+    font-size: 18px;
+  }
+
+  .login-nav a {
+    font-size: 14px;
+  }
+
+  .headings {
+    top: 20%;
+    left: 6%;
+    right: 6%;
+  }
+
+  .headings h1 {
+    font-size: 18px;
+  }
+
+  .headings p {
+    font-size: 13px;
+  }
+
+  .header-btn {
+    top: 48%;
+  }
+
+  .header-btn button {
+    padding: 9px 18px;
+  }
+
+  .create-account,
+  .loginform,
+  .forgotPassword {
+    top: 50%;
+    left: 50%;
+    width: 92%;
+    max-width: 350px;
+    padding: 20px;
+  }
+
+  .create-account h1,
+  .loginform h1,
+  .forgotPassword h1 {
+    font-size: 20px;
+  }
+
+  .input {
+    height: 38px;
+  }
+
+  .form-btn {
+    flex-wrap: wrap;
+  }
+
+  .form-btn button {
+    padding: 9px 18px;
+  }
+}
+
+@media (max-width: 400px) {
+  .bar {
+    min-height: 680px;
+  }
+
+  .headings {
+    top: 18%;
+    left: 5%;
+    right: 5%;
+  }
+
+  .headings h1 {
+    font-size: 16px;
+  }
+
+  .headings p {
+    font-size: 12px;
+  }
+
+  .create-account,
+  .loginform,
+  .forgotPassword {
+    top: 50%;
+    left: 50%;
+    width: 94%;
+    max-width: 330px;
+    padding: 18px;
+  }
+
+  .create-account h1,
+  .loginform h1,
+  .forgotPassword h1 {
+    font-size: 18px;
+  }
+
+  .input {
+    height: 36px;
+  }
+
+  .form-btn button {
+    padding: 8px 15px;
+  }
+
+  #Otp {
+    width: 35px;
+    height: 35px;
+  }
+
+  form::before {
+    border-width: 7px;
+  }
+}
+
+body {
+  color: #25231f;
+  background: white;
+  font-family: Arial, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.bar {
+  height: 680px;
+  border-radius: 0;
+  background-position: center;
+}
+
+.bar::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: #0005;
+  pointer-events: none;
+}
+
+.nabar-menu {
+  position: relative;
+  z-index: 1;
+  justify-content: space-between;
+  margin: 10px 20px;
+}
+
+.logo a,
+.logo i,
+.home i,
+.pages a,
+.login-nav a {
+  color: white;
+}
+
+.headings {
+  z-index: 1;
+  top: 24%;
+  color: white;
+}
+
+.headings h1 {
+  max-width: 720px;
+  font-size: 40px;
+}
+
+.headings p {
+  max-width: 600px;
+}
+
+.header-btn {
+  z-index: 1;
+  top: 67%;
+}
+
+.header-btn button,
+.details-button,
+.more-button,
+.contact-button,
+.closing-banner a {
+  padding: 9px 16px;
+  border: 1px solid #999;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+}
+
+.page-content {
+  display: block;
+}
+
+.featured-section,
+.products-section,
+.collections-section,
+.difference-section,
+.faq-section {
+  padding: 50px 7%;
+}
+
+.featured-section,
+.difference-section,
+.faq-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 30px;
+}
+
+.section-label {
+  color: #98704e;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.featured-copy h2,
+.section-title h2,
+.difference-section h2,
+.faq-section h2 {
+  margin-bottom: 12px;
+}
+
+.featured-copy p,
+.section-title p,
+.difference-grid p,
+.faq-list p {
+  color: #706d68;
+  line-height: 1.6;
+}
+
+.featured-section img,
+.difference-section > img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.text-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #25231f;
+}
+
+.products-section,
+.difference-section {
+  background: #f4f4f2;
+}
+
+.section-title {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.product-card {
+  padding: 10px;
+  background: #e8e8e6;
+}
+
+.product-image {
+  position: relative;
+  height: 230px;
+}
+
+.product-image img,
+.room-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sale-label {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 5px 9px;
+  border-radius: 12px;
+  background: white;
+}
+
+.product-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 0;
+}
+
+.product-info h3,
+.product-info p {
+  margin-bottom: 5px;
+}
+
+.details-button {
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.product-description {
+  color: #706d68;
+  font-size: 13px;
+}
+
+.more-button,
+.contact-button {
+  display: table;
+  margin: 25px auto 0;
+  color: #25231f;
+  text-decoration: none;
+}
+
+.room-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 210px 210px 230px;
+  gap: 12px;
+}
+
+.room-card {
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+
+.room-card::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(transparent, #0008);
+}
+
+.room-card span {
+  position: absolute;
+  z-index: 1;
+  bottom: 14px;
+  left: 14px;
+}
+
+.room-card small {
+  display: block;
+  margin-top: 8px;
+}
+
+.room-living {
+  grid-row: span 2;
+}
+
+.room-office {
+  grid-column: span 2;
+}
+
+.difference-section > img {
+  border-radius: 45%;
+}
+
+.difference-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.faq-list details {
+  margin-bottom: 10px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.faq-list summary {
+  cursor: pointer;
+}
+
+.closing-banner {
+  padding: 60px 20px;
+  color: white;
+  text-align: center;
+  background: linear-gradient(#0008, #0008), url("images/background/hero_bottom.jpeg") center / cover;
+}
+
+.closing-banner a {
+  display: inline-block;
+  color: #25231f;
+  text-decoration: none;
+}
+
+@media (max-width: 700px) {
+  .featured-section,
+  .difference-section,
+  .faq-section {
+    grid-template-columns: 1fr;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .nabar-menu {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px;
+  }
+
+  .pages {
+    display: flex;
+    order: 3;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .pages a {
+    font-size: 12px;
+  }
+
+  .bar {
+    height: 600px;
+  }
+
+  .headings h1 {
+    font-size: 25px;
+  }
+
+  .header-btn {
+    top: 70%;
+  }
+
+  .featured-section,
+  .products-section,
+  .collections-section,
+  .difference-section,
+  .faq-section {
+    padding: 35px 18px;
+  }
+
+  .product-grid {
+    gap: 8px;
+  }
+
+  .product-image {
+    height: 150px;
+  }
+
+  .product-info {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+.search,
+.home {
+  display: block;
+}
+
+.search i {
+  padding: 6px;
+  border-color: white;
+  cursor: default;
+}
+
+.home a {
+  color: white;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nabar-menu {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .logo {
+    margin-right: auto;
+  }
+
+  .menu-toggle {
+    order: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ffffff99;
+    border-radius: 4px;
+    background: #0003;
+    color: white;
+    cursor: pointer;
+  }
+
+  .menu-toggle i {
+    font-size: 22px;
+  }
+
+  .menu-toggle:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 3px;
+  }
+
+  .login-nav {
+    order: 3;
+  }
+
+  .pages {
+    order: 4;
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 6px;
+    border-radius: 4px;
+    background: #171715ed;
+  }
+
+  .nabar-menu.menu-open .pages {
+    display: flex;
+  }
+
+  .pages a {
+    padding: 11px 12px;
+    font-size: 15px;
+  }
+
+  .search,
+  .home {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .pages a {
+    font-size: 14px;
+  }
+}
